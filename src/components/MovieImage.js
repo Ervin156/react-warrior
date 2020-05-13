@@ -1,15 +1,9 @@
 import React from 'react';
 
 function MovieImage({src, alt}){
-  const styles = {
-    img: {
-      width: "80%",
-      height: "auto"
-    }
-  };
   return(
     <div className='movie-image'>
-      <img src={src} alt={alt} style={styles.img}/>
+      <img  width='100%' src={src} alt={alt} />
     </div>
   )
 }
