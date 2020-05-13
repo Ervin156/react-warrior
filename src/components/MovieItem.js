@@ -9,7 +9,12 @@ class MovieItem extends React.Component {
     this.vote_average = props.movie.vote_average;
     this.image = props.movie.image;
     this.overview = props.movie.overview;
-    console.log(props);
+
+    this.state = {
+      show: false
+    };
+
+    console.log(this.state);
   }
   render() {
     return (
@@ -17,20 +22,21 @@ class MovieItem extends React.Component {
         <p>{this.title}</p>
         <p>{this.vote_average}</p>
         <MovieImage src={this.image} alt={this.title} />
-        <p>{this.overview}</p>
+        <button
+          type="button"
+          onClick={() => {
+            this.state.show === false
+              ? this.setState({ show: true })
+              : this.setState({ show: false });
+          }}
+        >
+          show overview
+        </button>
+
+        {this.state.show === true ? <p>{this.overview}</p> : null}
       </div>
     );
   }
 }
 
-// function MovieItem({ movie: { title, vote_average, image, overview } }) {
-//   return (
-//     <div className="MovieItem">
-//       <p>{title}</p>
-//       <p>{vote_average}</p>
-//       <MovieImage src={image} alt={title} />
-//       <p>{overview}</p>
-//     </div>
-//   );
-// }
 export default MovieItem;
