@@ -27,6 +27,11 @@ class MovieItem extends React.Component {
       buttonContainer: {
         display: "flex",
         justifyContent: "space-between"
+      },
+      overview: {
+        background: "#e8e8e8",
+        padding: "1rem",
+        textAlign: "justify"
       }
     };
     return (
@@ -52,9 +57,7 @@ class MovieItem extends React.Component {
             like
           </button>
         </div>
-        {this.state.show === true ? (
-          <p style={{ background: "#e8e8e8" }}>{this.overview}</p>
-        ) : null}
+        {this.state.show === true ? <p style={styles.overview}>{this.overview}</p> : null}
       </div>
     );
   }
